@@ -148,7 +148,6 @@
                 margin-right: $spacing-4;
                 @include Icon($pin, color(gray-content1));
             }
-
             /*.artifact_subtext {
                 color: color(gray-content3);
                 font-family: $open-sans-regular;
@@ -164,6 +163,18 @@
             flex-flow: row nowrap;
             justify-content: flex-start;
             align-items: center;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .folder-info-row {
+        .action-row {
+            .info-box {
+                .artifact-title {
+                    max-width: calc(100vw - 415px);
+                }
+            }
         }
     }
 }
