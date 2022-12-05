@@ -2,6 +2,7 @@
 @import '../../Styles/abstracts/_variables.scss';
 @import '../../Styles/abstracts/_functions.scss';
 
+
 .toolbar-box {
     width: 100%;
     padding: 8px 21px;
@@ -55,9 +56,9 @@
     }
 }
 
-    .search-toolbar-not-in-root ::deep input.input-box {
-        flex-grow: 2;
-    }
+.search-toolbar-not-in-root ::deep input.input-box {
+    flex-grow: 2;
+}
 
 .toolbar-search-row {
     display: flex;
@@ -86,13 +87,13 @@
     }
 }
 
-    .root-mode ::deep input.input-box {
-        flex-grow: 2;
-    }
+.root-mode ::deep input.input-box {
+    flex-grow: 2;
+}
 
-    ::deep .back-button-space {
-        margin-right: $spacing-8;
-    }
+::deep .back-button-space {
+    margin-right: $spacing-8;
+}
 
 .folder-info-row {
     width: 100%;
@@ -130,24 +131,25 @@
         .info-box {
 
             .artifact-title {
-                font-family: $montserrat-medium;
-                font-style: normal;
                 font-weight: 600;
+                font-style: normal;
                 font-size: $font-size-24;
                 line-height: $line-height-36;
+                font-family: $montserrat-medium;
+                max-width: calc(100vw - 145px);
                 color: color(gray-content1);
-                max-width: 220px;
-                overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                overflow: hidden;
             }
 
             .pinned-icon::before {
-                margin-right: $spacing-4;
                 font-size: $icon-24;
+                margin-right: $spacing-4;
                 @include Icon($pin, color(gray-content1));
             }
-            /*            .artifact_subtext {
+
+            /*.artifact_subtext {
                 color: color(gray-content3);
                 font-family: $open-sans-regular;
                 font-style: normal;
@@ -176,69 +178,68 @@
     transition: opacity 300ms linear;
 }
 
-    ::deep .animate-button {
-        position: relative;
-        color: red !important;
-    }
+::deep .animate-button {
+    position: relative;
+    color: red !important;
+}
 
-    ::deep .animate-button:after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 120px;
-        height: 120px;
-        margin-left: -60px;
-        margin-top: -60px;
-        background-color: #038082;
-        border-radius: 100%;
-        opacity: 0.6;
+::deep .animate-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    background-color: #038082;
+    border-radius: 100%;
+    opacity: 0.6;
+    transform: scale(0);
+}
+
+::deep .animate-button:not(:active):after {
+    animation: ripple 300ms ease-in-out 1ms;
+}
+
+::deep .animate-button:after {
+    visibility: hidden;
+}
+
+::deep .animate-button:focus:after {
+    visibility: visible;
+}
+
+::deep .animate-button:hover {
+    transition: background 100ms ease-in;
+    background: $green-dark-hover !important;
+}
+
+::deep .animate-button:active {
+    transition: background 200ms ease-in;
+    background: $green-dark-pressed !important;
+}
+
+@keyframes ripple {
+    0% {
         transform: scale(0);
     }
 
-    ::deep .animate-button:not(:active):after {
-        animation: ripple 300ms ease-in-out 1ms;
+    25% {
+        transform: scale(0.25);
     }
 
-    ::deep .animate-button:after {
-        visibility: hidden;
+    50% {
+        transform: scale(0.5);
     }
 
-    ::deep .animate-button:focus:after {
-        visibility: visible;
+    75% {
+        transform: scale(0.75);
     }
 
-    ::deep .animate-button:hover {
-        transition: background 100ms ease-in;
-        background: $green-dark-hover !important;
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
-
-    ::deep .animate-button:active {
-        transition: background 200ms ease-in;
-        background: $green-dark-pressed !important;
-    }
-
-
-    @keyframes ripple {
-        0% {
-            transform: scale(0);
-        }
-
-        25% {
-            transform: scale(0.25);
-        }
-
-        50% {
-            transform: scale(0.5);
-        }
-
-        75% {
-            transform: scale(0.75);
-        }
-
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
+}
