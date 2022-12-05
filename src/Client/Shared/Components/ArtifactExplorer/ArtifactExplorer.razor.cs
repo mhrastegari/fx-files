@@ -377,19 +377,22 @@ public partial class ArtifactExplorer : IAsyncDisposable
         }
     }
 
-    public void UpdateGridRowCount(int width)
+    public void UpdateGridRowCount(int windowWidth)
     {
         bool shouldRefresh = false;
+        int desktopModeWidth = 992;
+        int sidebarWidth = 280;
+        int gridItemSize = 175;
 
-        if (width > 175)
+        if (windowWidth > gridItemSize)
         {
-            if (width > 992)
+            if (windowWidth > desktopModeWidth)
             {
-                _gridRowCount = (width - 312) / 175;
+                _gridRowCount = (windowWidth - sidebarWidth) / gridItemSize;
             }
             else
             {
-                _gridRowCount = width / 175;
+                _gridRowCount = windowWidth / gridItemSize;
             }
 
             shouldRefresh = true;
