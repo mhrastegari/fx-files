@@ -505,10 +505,16 @@
 
 .position-scroll-btn {
     position: fixed;
+    display: none;
     bottom: 95px;
     right: 15px;
-    display: none;
     z-index: 2;
+}
+
+@media screen and (min-width: 992px) {
+    .position-scroll-btn {
+        bottom: 21px;
+    }
 }
 
 .position-scroll-btn-in-search {
@@ -517,12 +523,6 @@
 
 ::deep .fxbutton-content img {
     height: 24px !important;
-}
-
-.position-scroll-btn {
-    position: fixed;
-    bottom: 95px;
-    z-index: 2;
 }
 
 .check-box-position {
