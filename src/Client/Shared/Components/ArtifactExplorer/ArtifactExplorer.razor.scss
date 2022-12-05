@@ -516,20 +516,13 @@
 }
 
 ::deep .fxbutton-content img {
-    height: $icon-24 !important;
+    height: 24px !important;
 }
 
-@media only screen and (min-width: 600px) {
-    // handle back to top button location in APP
-    $a: 50vw;
-    $b: 285px;
-
-    .position-scroll-btn {
-        position: fixed;
-        bottom: 95px;
-        right: calc(#{$a} - #{$b});
-        z-index: 2;
-    }
+.position-scroll-btn {
+    position: fixed;
+    bottom: 95px;
+    z-index: 2;
 }
 
 .check-box-position {
@@ -538,8 +531,8 @@
 
 .checkbox {
     margin-right: 16px;
-    border: $border-size-1 solid;
-    border-radius: $border-radius-4;
+    border: 1px solid;
+    border-radius: 4px;
     background-color: color(app-bg);
     border-color: color(gray-border);
     height: 20px;

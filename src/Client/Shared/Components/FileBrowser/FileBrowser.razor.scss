@@ -52,14 +52,15 @@
 }
 
 .root-title {
-    font-family: $montserrat-semi-bold;
     font-size: $font-size-18;
     line-height: $line-height-24;
-    color: color(gray-content1);
+    font-family: $montserrat-semi-bold;
     padding: $spacing-16 $spacing-21;
+    color: color(gray-content1);
     background-color: color(app-bg);
     z-index: 2;
     opacity: 1;
+    width: 100%;
     height: 56px;
 }
 
@@ -399,15 +400,14 @@
 }
 
 .search-container {
-    position: absolute;
     top: 70px;
     left: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     z-index: 100;
-    background-color: color(app-bg);
-    max-width: 600px;
     margin: 0 auto;
+    position: absolute;
+    background-color: color(app-bg);
 
     ::deep .list-container {
         overflow: auto;
@@ -415,7 +415,7 @@
 }
 
 .filter-deep-search {
-    padding: $spacing-0 $spacing-21;
+    padding: 0 21px;
     width: 100%;
 }
 
@@ -424,11 +424,11 @@
 }
 
 .filter-content {
-    display: flex;
     justify-content: space-between;
     align-content: center;
     padding-bottom: 16px;
     cursor: pointer;
+    display: flex;
 
     .filter-text {
         font-family: $open-sans-regular;
@@ -506,11 +506,11 @@
 
 .hide-option {
     height: 0;
-    overflow: hidden;
-    transition: all 300ms linear 150ms, opacity 300ms linear;
     padding: 0;
-    border-bottom: 0px solid color(gray-bg-secondary);
     opacity: 0;
+    overflow: hidden;
+    border-bottom: 0px solid color(gray-bg-secondary);
+    transition: all 300ms linear 150ms, opacity 300ms linear;
 }
 
 .time-options-container {
@@ -518,16 +518,15 @@
 }
 
 .footer-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $spacing-10 $spacing-21;
-    border-top: 1px solid color(gray-bg-secondary);
-    position: fixed;
     bottom: 0;
-    max-width: 600px;
     width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    padding: 10px 21px;
+    justify-content: space-between;
     background-color: color(app-bg);
+    border-top: 1px solid color(gray-bg-secondary);
 
     & div {
         cursor: pointer;
@@ -543,8 +542,8 @@
     .title-item {
         color: color(gray-content1);
         font-size: $font-size-12;
-        font-family: $open-sans-regular;
         line-height: $line-height-16;
+        font-family: $open-sans-regular;
         letter-spacing: $letter-spacing-02;
     }
 

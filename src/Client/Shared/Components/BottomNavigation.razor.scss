@@ -66,3 +66,43 @@ footer {
         cursor: pointer;
     }
 }
+
+@media screen and (min-width: 992px) {
+    .navbarApp {
+        border-top: 1px transparent;
+    }
+
+    .navbarApp__wrapper {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        grid-template-columns: inherit;
+    }
+
+    ::deep .navbarApp-link {
+        flex-direction: row;
+        padding: 12px;
+        height: 56px;
+    }
+
+    ::deep .navbarApp-link.active,
+    ::deep .navbarApp-link:hover {
+        width: 100%;
+        height: 56px;
+        background-color: color(gray-hover);
+    }
+
+    .navbarApp-item {
+        justify-content: flex-start;
+    }
+
+    .navbarApp-linkLabel {
+        margin-left: 10px;
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .navbarApp-linkLabel > span {
+        display: inline-block;
+    }
+}

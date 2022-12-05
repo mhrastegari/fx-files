@@ -44,7 +44,7 @@
         </media:MediaElement>
         <Frame
             x:Name="header"
-            Padding="21,0"
+            Padding="20,0"
             VerticalOptions="StartAndExpand">
             <StackLayout
                 HeightRequest="72"

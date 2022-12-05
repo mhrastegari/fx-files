@@ -4,16 +4,14 @@
 @import '../../Styles/components/_bit-checkbox.scss';
 
 
-
 .loading-container {
-    height: 100%;
-    max-width: 600px;
+    top: 0;
     width: 100%;
+    height: 100%;
     display: flex;
     position: absolute;
-    top: 0;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background-color: color(app-bg);
 }
 
@@ -30,27 +28,27 @@
 .fx-loading-sppiner {
     background-image: url(images/Loading/Loading.svg);
     background-repeat: no-repeat;
-    background-size: 55px;
     background-position: center;
+    background-size: 55px;
     height: 44px;
     width: 44px;
 }
 
 .fx-loading-dots-ring {
+    transform: translate(-50%, -50%);
     display: inline-block;
     position: absolute;
-    width: 80px;
     height: 80px;
-    top: 18%;
+    width: 80px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    top: 18%;
 
     div {
-        position: absolute;
         width: 6px;
         height: 6px;
-        background: #808080;
+        position: absolute;
         border-radius: 50%;
+        background: #808080;
         animation: fx-loading-dots-ring 1.2s linear infinite;
 
         &:nth-child(1) {
@@ -131,8 +129,6 @@
     0%, 20%, 80%, 100% {
         transform: scale(1);
     }
-
-
 
     50% {
         transform: scale(1.5);

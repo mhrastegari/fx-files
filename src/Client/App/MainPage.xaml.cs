@@ -31,8 +31,6 @@ public partial class MainPage
             var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
             var appWindow = AppWindow.GetFromWindowId(windowId);
 
-            appWindow.Resize(new SizeInt32(691, 968));
-
             var titleBar = appWindow.TitleBar;
             appWindow.Title = "Fx Files";
 

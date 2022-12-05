@@ -379,22 +379,20 @@ public partial class ArtifactExplorer : IAsyncDisposable
 
     public void UpdateGridRowCount(int width)
     {
-        bool shouldRefresh;
+        bool shouldRefresh = false;
 
-        switch (width)
+        if (width > 175)
         {
-            case >= 530:
-                shouldRefresh = true;
-                _gridRowCount = 3;
-                break;
-            case >= 350:
-                shouldRefresh = true;
-                _gridRowCount = 2;
-                break;
-            default:
-                shouldRefresh = true;
-                _gridRowCount = 1;
-                break;
+            if (width > 992)
+            {
+                _gridRowCount = (width - 312) / 175;
+            }
+            else
+            {
+                _gridRowCount = width / 175;
+            }
+
+            shouldRefresh = true;
         }
 
         if (shouldRefresh && ViewMode == ViewModeEnum.Grid && _virtualizeGridRef is not null)

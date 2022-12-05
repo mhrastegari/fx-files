@@ -1,19 +1,24 @@
 ﻿@inherits LayoutComponentBase
-<div class="main-layout">
-    <div class="content">
-        <AppErrorBoundary>
-            @if (_isLoading)
-            {
-                <OverlayLoading />
-            }
-            else
-            {
-              @Body
-            }
-        </AppErrorBoundary>
+
+<div class="page">
+    <div class="page__sidebar">
+        <BottomNavigation />
     </div>
-    <BottomNavigation />
 
+    <main>
+        <article class="content">
+            <AppErrorBoundary>
+                @if (_isLoading)
+                {
+                    <OverlayLoading />
+                }
+                else
+                {
+                    @Body
+                }
+            </AppErrorBoundary>
+        </article>
+    </main>
+
+    <FxToast />
 </div>
-
-<FxToast />

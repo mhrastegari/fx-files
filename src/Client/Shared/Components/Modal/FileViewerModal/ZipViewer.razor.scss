@@ -3,11 +3,11 @@
 @import '../../../Styles/abstracts/_functions.scss';
 
 .navigation-header {
-    display: flex;
     justify-content: start;
+    padding: 23px 20px 8px;
     align-items: center;
-    padding: $spacing-8 $spacing-21;
     position: relative;
+    display: flex;
     z-index: 1;
 }
 
@@ -41,7 +41,6 @@
 .artifact-list{
     height:100%;
 }
-
 
 ::deep .list-view {
     padding: $spacing-0;

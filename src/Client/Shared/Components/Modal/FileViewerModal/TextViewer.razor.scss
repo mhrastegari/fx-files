@@ -4,9 +4,9 @@
 
 .navigation-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 8px 21px;
+    padding: 23px 20px 0px;
+    justify-content: space-between;
 
     ::deep .back-button {
         display: flex;
