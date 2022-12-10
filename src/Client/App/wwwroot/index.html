@@ -131,6 +131,11 @@
         }
 
         @supports (-webkit-touch-callout: none) {
+
+            body {
+                padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            }
+
             .status-bar-safe-area {
                 display: flex;
                 position: sticky;
@@ -160,7 +165,7 @@
 
 <body>
 
-    <div class="status-bar-safe-area"></div>
+    <!--<div class="status-bar-safe-area"></div>-->
 
     <app>
         <div class="overlay"></div>
@@ -176,7 +181,7 @@
     <script src="_content/Functionland.FxFiles.Client.Shared/scripts/windowSize.js"></script>
     <script src="_content/Functionland.FxFiles.Client.Shared/scripts/codemirror.js"></script>
     <script src="_content/Functionland.FxFiles.Client.Shared/lib/pinch-zoom/hammer.min.js"></script>
-   
+
     <script src="_content/Functionland.FxFiles.Client.Shared/scripts/app.js"></script>
 </body>
 

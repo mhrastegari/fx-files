@@ -3,31 +3,31 @@
 @import '../../Styles/abstracts/_functions.scss';
 @import '../../Styles/components/_bit-checkbox.scss';
 
+
 .artifact-box {
-    height: 100%;
     width: 100%;
+    height: 100%;
     flex-grow: 2;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+    overscroll-behavior: none;
 }
 
 .list-container {
     height: 0;
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
     position: relative;
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 }
 
 .show-animation-artifact {
     height: 100%;
-    transition: all 300ms linear;
     overflow-y: auto;
     overflow-x: hidden;
-    // transition: transform 100ms linear, opacity 100ms linear;
-    // transform: scaleY(1);
-    // opacity: 1;
+    overscroll-behavior: none;
+    transition: all 300ms linear;
 }
 
 .list-title {
@@ -529,6 +529,12 @@
         bottom: 95px;
         right: calc(#{$a} - #{$b});
         z-index: 2;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .position-scroll-btn {
+        bottom: calc(env(safe-area-inset-bottom) + 95px);
     }
 }
 
