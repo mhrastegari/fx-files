@@ -8,18 +8,22 @@ const themeKey = 'theme';
 const dataThemeKey = 'data-theme';
 const currentTheme = localStorage.getItem(themeKey);
 
+const mediaDark = matchMedia('(prefers-color-scheme: dark)');
+const mediaLight = matchMedia('(prefers-color-scheme: light)');
+
 var FxTheme = {
 
     registerForSystemThemeChanged: (dotnetObj, callbackMethodName) => {
-        const media = matchMedia('(prefers-color-scheme: dark)');
-        if (media && dotnetObj) {
-            media.onchange = args => {
+        if (dotnetObj) {
+            const callback = (args) => {
                 const isDark = args.matches;
-                if (FxTheme.getTheme() = Theme.system) {
+                if (FxTheme.getTheme() === Theme.system) {
                     FxTheme.applyTheme(Theme.system);
                 }
                 dotnetObj.invokeMethod(callbackMethodName, isDark);
-            }
+            };
+            mediaDark.addEventListener('change', callback);
+            mediaLight.addEventListener('change', callback);
         }
     },
 

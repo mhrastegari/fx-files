@@ -10,14 +10,34 @@ public partial class App
     private List<Assembly> _lazyLoadedAssemblies = new();
     [AutoInject] private Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader _assemblyLoader = default!;
 #endif
+
     private bool _isLoading = true;
+    private bool _isSystemThemeDark;
+
+    [AutoInject] ThemeInterop ThemeInterop { get; set; } = default!;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _isSystemThemeDark = await ThemeInterop.GetSystemThemeAsync() is FxTheme.Dark;
+
+        ThemeInterop.SystemThemeChanged = (FxTheme theme) =>
+        {
+            _isSystemThemeDark = theme is FxTheme.Dark;
+            StateHasChanged();
+            return Task.CompletedTask;
+        };
+
+        await ThemeInterop.RegisterForSystemThemeChangedAsync();
+
+        await base.OnInitializedAsync();
+    }
 
     private async Task OnNavigateAsync(NavigationContext args)
     {
         // Blazor Server & Pre Rendering use created cultures in UseRequestLocalization middleware
         // Android, windows and iOS have to set culture programmatically.
-        // Browser is gets handled in Web project's Program.cs\
         // Browser is gets handled in Web project's Program.cs
+
 #if BlazorHybrid && MultilingualEnabled
         if (_cultureHasNotBeenSet)
         {
@@ -35,9 +55,5 @@ public partial class App
         }
 #endif
         _isLoading = false;
-    }
-    override protected async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
     }
 }

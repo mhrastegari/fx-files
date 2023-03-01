@@ -18,24 +18,11 @@ public partial class SettingsThemePage
         return base.OnInitAsync();
     }
 
-    private bool _isSystemThemeDark;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            _isSystemThemeDark = await ThemeInterop.GetSystemThemeAsync() is FxTheme.Dark;
-
-            ThemeInterop.SystemThemeChanged = (FxTheme theme) =>
-            {
-                _isSystemThemeDark = theme is FxTheme.Dark;
-                StateHasChanged();
-                return Task.CompletedTask;
-            };
-
             CurrentTheme = await ThemeInterop.GetThemeAsync();
-
-            await ThemeInterop.RegisterForSystemThemeChangedAsync();
-
             StateHasChanged();
         }
     }
